@@ -1,0 +1,16 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+requests
+joblib
+streamlit
+scikit-image
+opencv-python
+tensorflow
+torch
+beautiful
+lxml
+pyyaml
+pillow

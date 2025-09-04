@@ -1,0 +1,475 @@
+import streamlit as st
+ 
+# Set page configuration
+st.set_page_config(page_title="Cropify", page_icon="🌾", layout="centered")
+
+# Title and description
+st.title("🌾 Cropify – Smart Crop Recommender")
+st.markdown("Enter the soil and climate parameters below to get the best crop suggestion powered by AI.")
+
+# Sidebar input fields in two columns
+with st.form("crop_form"):
+    st.subheader("📊 Input Parameters")
+    col1, col2 = st.columns(2)
+
+    with col1:
+        nitrogen = st.number_input("Nitrogen (N)", min_value=0, max_value=200, value=50)
+        phosphorus = st.number_input("Phosphorus (P)", min_value=0, max_value=200, value=50)
+        potassium = st.number_input("Potassium (K)", min_value=0, max_value=200, value=50)
+        ph = st.number_input("Soil pH", min_value=0.0, max_value=14.0, value=6.5)
+
+    with col2:
+        temperature = st.number_input("Temperature (°C)", min_value=0.0, max_value=60.0, value=25.0)
+        humidity = st.number_input("Humidity (%)", min_value=0.0, max_value=100.0, value=60.0)
+        rainfall = st.number_input("Rainfall (mm)", min_value=0.0, max_value=500.0, value=100.0)
+
+    submitted = st.form_submit_button("🌱 Predict Crop")              
+
+# Placeholder result section
+if submitted:
+    # 🚀 Replace this block with actual model prediction
+    # e.g. result = model.predict([[...]])
+    mock_result = "Wheat"  # Hardcoded for now
+    st.success(f"✅ Recommended Crop: **{mock_result}**")
+    st.balloons()
+
+
+#RANDOM FOREST(TRAINING AND SAVING)
+# train_rf_model.py
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+import joblib
+
+# Load your dataset
+data = pd.read_csv("crop_dataset.csv")  # Ensure this CSV file is in your working directory
+
+# Separate features and target
+X = data.drop("label", axis=1)  # Features
+y = data["label"]               # Target variable
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Initialize the Random Forest Classifier
+rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+
+# Train the model
+rf_model.fit(X_train, y_train)
+
+# Save the trained model to a file
+joblib.dump(rf_model, "rf_crop_model.pkl")
+print("✅ Random Forest model trained and saved as 'rf_crop_model.pkl'")
+
+
+#INTEGRATION OF MODEL IN THE STREAMLIT APP (RANDOM FOREST)
+# cropii.py
+import streamlit as st
+import joblib
+import numpy as np
+
+# Load the trained Random Forest model
+model = joblib.load("rf_crop_model.pkl")
+
+# Set up the Streamlit app
+st.title("🌾 Cropify - Smart Crop Recommendation")
+
+# Create sliders for user input
+nitrogen = st.slider("Nitrogen (N)", 0, 140, 70)
+phosphorus = st.slider("Phosphorus (P)", 5, 145, 60)
+potassium = st.slider("Potassium (K)", 5, 205, 65)
+temperature = st.slider("Temperature (°C)", 10, 45, 25)
+humidity = st.slider("Humidity (%)", 10, 100, 60)
+ph = st.slider("Soil pH", 3.5, 9.5, 6.5)
+rainfall = st.slider("Rainfall (mm)", 20.0, 300.0, 100.0)
+
+# Predict the optimal crop when the button is clicked
+if st.button("🌱 Predict Optimal Crop"):
+    # Prepare the input data as a 2D array
+    input_data = np.array([[nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall]])
+    
+    # Make the prediction
+    prediction = model.predict(input_data)[0]
+    
+    # Display the result
+    st.success(f"✅ Recommended Crop: **{prediction}**")
+
+
+#MLP MODEL (TRAINING AND TESTING)
+# train_mlp_model.py
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.neural_network import MLPClassifier
+import joblib
+
+# Load your dataset
+data = pd.read_csv("crop_dataset.csv")  # Ensure this CSV file is in your working directory
+
+# Separate features and target
+X = data.drop("label", axis=1)  # Features
+y = data["label"]               # Target variable
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Initialize the MLP Classifier
+mlp_model = MLPClassifier(hidden_layer_sizes=(100, 50), max_iter=500, random_state=42)
+
+# Train the model
+mlp_model.fit(X_train, y_train)
+
+# Save the trained model to a file
+joblib.dump(mlp_model, "mlp_crop_model.pkl")
+print("✅ MLP model trained and saved as 'mlp_crop_model.pkl'")
+
+INTEGRATION OF MODEL INTO STREAMLIT(MLP)
+# cropii.py
+import streamlit as st
+import joblib
+import numpy as np
+
+# Load the trained MLP model
+model = joblib.load("mlp_crop_model.pkl")
+
+# Set up the Streamlit app
+st.title("🌾 Cropify - Smart Crop Recommendation")
+
+# Create sliders for user input
+nitrogen = st.slider("Nitrogen (N)", 0, 140, 70)
+phosphorus = st.slider("Phosphorus (P)", 5, 145, 60)
+potassium = st.slider("Potassium (K)", 5, 205, 65)
+temperature = st.slider("Temperature (°C)", 10, 45, 25)
+humidity = st.slider("Humidity (%)", 10, 100, 60)
+ph = st.slider("Soil pH", 3.5, 9.5, 6.5)
+rainfall = st.slider("Rainfall (mm)", 20.0, 300.0, 100.0)
+
+# Predict the optimal crop when the button is clicked
+if st.button("🌱 Predict Optimal Crop"):
+    # Prepare the input data as a 2D array
+    input_data = np.array([[nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall]])
+    
+    # Make the prediction
+    prediction = model.predict(input_data)[0]
+    
+    # Display the result
+    st.success(f"✅ Recommended Crop: **{prediction}**")
+
+#TO ADD THE DROPDOWNBOX
+#to add the slidebar on the models 
+import streamlit as st
+import joblib
+import numpy as np
+
+# Load all models
+models = {
+    "Random Forest": joblib.load("rf_crop_model.pkl"),
+    "Naive Bayes": joblib.load("nb_crop_model.pkl"),
+    "MLP": joblib.load("mlp_crop_model.pkl"),
+    "Decision Tree": joblib.load("dt_crop_model.pkl")
+}
+
+# Streamlit app title
+st.title("🌾 Cropify - Smart Crop Recommendation")
+
+# Model selection dropdown
+model_choice = st.selectbox("Choose ML Model", list(models.keys()))
+model = models[model_choice]
+
+# Input sliders
+nitrogen = st.slider("Nitrogen (N)", 0, 140, 70)
+phosphorus = st.slider("Phosphorus (P)", 5, 145, 60)
+potassium = st.slider("Potassium (K)", 5, 205, 65)
+temperature = st.slider("Temperature (°C)", 10, 45, 25)
+humidity = st.slider("Humidity (%)", 10, 100, 60)
+ph = st.slider("Soil pH", 3.5, 9.5, 6.5)
+rainfall = st.slider("Rainfall (mm)", 20.0, 300.0, 100.0)
+
+# Predict button
+if st.button("🌱 Predict Optimal Crop"):
+    input_data = np.array([[nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall]])
+    prediction = model.predict(input_data)[0]
+    st.success(f"✅ Recommended Crop using {model_choice}: **{prediction}**")
+
+
+#CORRELATION MATRIX CODE (For taking out correlation constant)
+import pandas as pd
+
+# Assuming 'df' is your DataFrame and 'label' is the target variable
+correlation_matrix = df.corr()
+correlation_with_target = correlation_matrix['label'].sort_values(ascending=False)
+
+print(correlation_with_target)
+
+
+#VISUALISING CORRELATIONS (ON A GRAPHH)
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Heatmap of the correlation matrix
+plt.figure(figsize=(10,8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
+plt.title('Feature Correlation Matrix')
+plt.show()
+
+#DEPLOYING INTO STREAMLIT 
+import streamlit as st
+
+st.title("Cropify: Crop Recommendation System")
+
+# Upload dataset
+uploaded_file = st.file_uploader("Upload your dataset", type=["csv"])
+if uploaded_file is not None:
+    df = pd.read_csv(uploaded_file)
+    st.write("Dataset Preview:", df.head())
+
+    # Compute and display correlation matrix
+    correlation_matrix = df.corr()
+    st.subheader("Correlation Matrix")
+    st.write(correlation_matrix)
+
+    # Visualize correlation matrix
+    st.subheader("Correlation Heatmap")
+    plt.figure(figsize=(10,8))
+    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
+    st.pyplot(plt)
+
+#ADDING BACKGROUNND ON THE STREAMLIT OF CROPIFY
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://images.unsplash.com/photo-1582281298054-e84dd46d1301");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+add_bg_from_url()
+
+import plotly.graph_objects as go
+
+def display_prediction_chart(crop, probability):
+    fig = go.Figure(go.Indicator(
+        mode = "gauge+number+delta",
+        value = probability,
+        domain = {'x': [0, 1], 'y': [0, 1]},
+        title = {'text': f"Prediction Confidence for {crop}", 'font': {'size': 18}},
+        gauge = {
+            'axis': {'range': [0, 100]},
+            'bar': {'color': "#4CAF50"},
+            'steps': [
+                {'range': [0, 50], 'color': "#ffcccc"},
+                {'range': [50, 75], 'color': "#ffe0b2"},
+                {'range': [75, 100], 'color': "#c8e6c9"}
+            ]
+        }))
+    st.plotly_chart(fig, use_container_width=True)
+
+
+#USER CITY DETECTON USING IP ADDRESS
+import requests
+
+def get_city_from_ip():
+    try:
+        response = requests.get('https://ipinfo.io/json')
+        data = response.json()
+        city = data['city']
+        return city
+    except Exception as e:
+        print("Error detecting city:", e)
+        return None
+
+# Example usage
+city = get_city_from_ip()
+print(f"Detected city: {city}")
+
+
+#DETECTION USING IP ADDRESS 
+import requests
+
+def get_location():
+    try:
+        response = requests.get("https://ipinfo.io/json")
+        data = response.json()
+        city = data.get("city", "Unknown")
+        region = data.get("region", "Unknown")
+        country = data.get("country", "Unknown")
+
+        return city, region, country
+    except Exception as e:
+        return "Error", "Error", "Error"
+
+# TEST: Show city in terminal
+city, region, country = get_location()
+print(f"📍 You are in {city}, {region}, {country}")
+
+
+#API KEY INSERTION 
+import requests
+
+# Replace this with your OpenWeatherMap API key
+API_KEY = "YOUR_OPENWEATHERMAP_API_KEY"
+
+def get_location():
+    response = requests.get("https://ipinfo.io/json")
+    data = response.json()
+    return data["city"]
+
+def get_weather(city):
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+    response = requests.get(url)
+    data = response.json()
+    
+    if "main" in data:
+        temp = data["main"]["temp"]
+        humidity = data["main"]["humidity"]
+        weather = data["weather"][0]["main"]
+        return temp, humidity, weather
+    else:
+        return None, None, None
+
+# Example usage:
+city = get_location()
+temp, humidity, weather = get_weather(city)
+
+print(f"📍 City: {city}")
+print(f"🌡️ Temp: {temp} °C")
+print(f"💧 Humidity: {humidity}%")
+print(f"⛅ Weather: {weather}")
+
+#TRANSLATIONS MULTILINGUAL SUPPORT
+# translations.py
+
+translations = {
+    "en": {
+        "title": "Enter Soil and Climate Parameters",
+        "nitrogen": "Nitrogen (N)",
+        "phosphorus": "Phosphorus (P)",
+        "potassium": "Potassium (K)",
+        "soil_ph": "Soil pH",
+        "predict_crop": "Predict Crop",
+    },
+    "hi": {
+        "title": "मृदा और जलवायु पैरामीटर दर्ज करें",
+        "nitrogen": "नाइट्रोजन (N)",
+        "phosphorus": "फॉस्फोरस (P)",
+        "potassium": "पोटेशियम (K)",
+        "soil_ph": "मिट्टी का पीएच",
+        "predict_crop": "फसल का पूर्वानुमान करें",
+    },
+    "ta": {
+        "title": "மண் மற்றும் காலநிலை அளவுருக்களை உள்ளிடவும்",
+        "nitrogen": "நைட்ரஜன் (N)",
+        "phosphorus": "பாஸ்பரஸ் (P)",
+        "potassium": "பொட்டாசியம் (K)",
+        "soil_ph": "மண்ணின் பிஎச்",
+        "predict_crop": "பயிர் கணிப்பு",
+    }
+}
+
+
+#CORRELATION UPDATED 
+# Import libraries
+import pandas as pd
+from sklearn.feature_selection import f_classif, mutual_info_classif
+import matplotlib.pyplot as plt
+
+# Step 1: Create the dataset
+data = {
+    'N': [90, 70, 80, 60],
+    'P': [40, 60, 55, 50],
+    'K': [40, 60, 65, 50],
+    'Temperature': [25, 20, 22, 18],
+    'Humidity': [80, 60, 65, 55],
+    'pH': [6.5, 6.8, 6.7, 6.4],
+    'Rainfall': [200, 150, 180, 100],
+    'Label': ['Rice', 'Wheat', 'Maize', 'Barley']
+}
+
+df = pd.DataFrame(data)
+
+# Step 2: Separate features (X) and label (y)
+X = df.drop('Label', axis=1)
+y = df['Label']
+
+# Step 3: Calculate ANOVA F-score and Mutual Info score
+f_scores, _ = f_classif(X, y)
+mutual_info_scores = mutual_info_classif(X, y, discrete_features=False)
+
+# Step 4: Put results into a DataFrame
+feature_importance = pd.DataFrame({
+    'Feature': X.columns,
+    'F-Score': f_scores,
+    'Mutual Info Score': mutual_info_scores
+})
+
+# Step 5: Sort and display
+feature_importance = feature_importance.sort_values(by='F-Score', ascending=False)
+print(feature_importance)
+
+# Step 6: Plotting
+plt.figure(figsize=(10,6))
+plt.barh(feature_importance['Feature'], feature_importance['F-Score'], color='skyblue')
+plt.xlabel('F-Score Importance')
+plt.title('Feature Importance for Crop Prediction')
+plt.gca().invert_yaxis()
+plt.grid(axis='x', linestyle='--', alpha=0.7)
+plt.show()
+
+
+
+
+#FLOW DIAGARAM ON TAB3
+import streamlit as st
+import plotly.graph_objects as go
+
+# TAB 3 
+tab1, tab2, tab3 = st.tabs(["🌱 Crop Recommendation", "📊 Data Analysis", "🌐 Working Flow 3D"])
+
+with tab3:
+    st.subheader("🌐 3D Working Flow Diagram of Cropify")
+
+    fig = go.Figure(data=[go.Sankey(
+        node = dict(
+            pad = 15,
+            thickness = 20,
+            line = dict(color="black", width=0.5),
+            label = ["User Input (Soil, Weather)", "Weather API Fetch", "ML Model Selection", "Preprocessing", "Prediction Engine", "Crop Output"],
+            color = ["#00cc96", "#636efa", "#ef553b", "#ab63fa", "#ffa15a", "#19d3f3"]
+        ),
+        link = dict(
+            source = [0, 0, 1, 2, 3],  # where the link starts
+            target = [1, 2, 3, 4, 5],  # where the link points
+            value = [1, 1, 1, 1, 1],   # strength of the flow
+            color = ["#b6e880", "#80dfff", "#ffb3b3", "#cfa9ff", "#ffd480"]
+        )
+    )])
+
+    fig.update_layout(title_text="Cropify ML Working Flow", font_size=15)
+    st.plotly_chart(fig, use_container_width=True)
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
