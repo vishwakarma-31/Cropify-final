@@ -10,7 +10,7 @@ Cropify ML is a smart crop recommendation system that leverages machine learning
 - **Weather Integration**: Automatic location detection and real-time weather data fetching using OpenWeatherMap API
 - **Multi-lingual Support**: Available in English, Hindi, and Tamil languages
 - **Machine Learning Models**: Multiple ML algorithms including Random Forest, MLP (Multi-Layer Perceptron), Naive Bayes, and Decision Tree
-- **Crop Information**: Detailed information for major crops (Rice, Wheat, Maize, Bajra) with images, facts, and cultivation tips
+- **Crop Information**: Detailed information for major crops (Rice, Wheat, Maize, Bajra, Cotton, Jute) with images, facts, and cultivation tips
 - **Data Analysis**: Correlation analysis with interactive heatmaps for uploaded datasets
 - **Workflow Visualization**: Visual representation of the ML model workflow and system architecture
 - **Real-time Prediction**: Instant crop recommendations based on soil parameters (N, P, K, pH) and environmental factors
@@ -119,7 +119,7 @@ We welcome contributions to improve Cropify ML! Please follow these guidelines:
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
 
 ---
 

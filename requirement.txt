@@ -6,11 +6,3 @@ seaborn
 requests
 joblib
 streamlit
-scikit-image
-opencv-python
-tensorflow
-torch
-beautiful
-lxml
-pyyaml
-pillow

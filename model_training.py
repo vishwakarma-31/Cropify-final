@@ -12,8 +12,7 @@ import joblib
 # I have used that name here. Change it if your file is different.
 df = pd.read_csv(r"csv/crop_recomendation.csv")
 
-# --- CORRECTION 1: Fix target column name ---
-# The column is likely 'label', not 'Crop'.
+# Prepare features and target variable
 X = df.drop("label", axis=1)
 y = df["label"]
 
@@ -26,11 +25,10 @@ mlp = MLPClassifier(max_iter=500, random_state=42).fit(X_train, y_train) # Added
 dt = DecisionTreeClassifier().fit(X_train, y_train)
 nb = GaussianNB().fit(X_train, y_train)
 
-# --- CORRECTION 2 & 3: Use raw strings for paths and fix filenames ---
 # Save models with the correct .pkl extension
-joblib.dump(rf, r"C:\Projects\Cropify\CROPIFY_ML-main\random_forest.pkl")
-joblib.dump(mlp, r"C:\Projects\Cropify\CROPIFY_ML-main\MLP.pkl")
-joblib.dump(dt, r"C:\Projects\Cropify\CROPIFY_ML-main\random_tree.pkl")
-joblib.dump(nb, r"C:\Projects\Cropify\CROPIFY_ML-main\naive_bayes.pkl")
+joblib.dump(rf, r"random_forest.pkl")
+joblib.dump(mlp, r"MLP.pkl")
+joblib.dump(dt, r"random_tree.pkl")
+joblib.dump(nb, r"naive_bayes.pkl")
 
 print("✅ Models trained and saved successfully.")
