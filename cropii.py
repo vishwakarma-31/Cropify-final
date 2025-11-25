@@ -556,13 +556,15 @@ with tab3:
 
     with col1:
         if os.path.exists(work_diagram_path):
-            st.image(work_diagram_path, caption="Model Workflow", width=400)
+            # Display image with better resolution while maintaining aspect ratio
+            st.image(work_diagram_path, caption="Model Workflow", width='stretch')
         else:
             st.info("Workflow diagram not available.")
 
     with col2:
         if os.path.exists(chart_diagram_path):
-            st.image(chart_diagram_path, caption="Systematic Workflow", width=400)
+            # Display image with better resolution while maintaining aspect ratio
+            st.image(chart_diagram_path, caption="Systematic Workflow", width='stretch')
         else:
             st.info("Systematic workflow diagram not available.")
 
