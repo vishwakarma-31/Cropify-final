@@ -5,30 +5,41 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import accuracy_score, classification_report
 import joblib
 
-# Load the dataset using a raw string for the path
-# NOTE: The CSV file is likely named 'crop_recomendation.csv' from our previous work.
-# I have used that name here. Change it if your file is different.
-df = pd.read_csv(r"csv/crop_recomendation.csv")
+df = pd.read_csv(r"csv/Crop_recommendation.csv")
 
-# Prepare features and target variable
 X = df.drop("label", axis=1)
 y = df["label"]
 
-# Split dataset
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Encode labels
+le = LabelEncoder()
+y_encoded = le.fit_transform(y)
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y_encoded, test_size=0.2, random_state=42, stratify=y_encoded
+)
 
 # Train models
-rf = RandomForestClassifier().fit(X_train, y_train)
-mlp = MLPClassifier(max_iter=500, random_state=42).fit(X_train, y_train) # Added random_state for reproducibility
-dt = DecisionTreeClassifier().fit(X_train, y_train)
+rf = RandomForestClassifier(n_estimators=100, random_state=42).fit(X_train, y_train)
+mlp = MLPClassifier(hidden_layer_sizes=(100,50), max_iter=1000, random_state=42).fit(X_train, y_train)
+dt = DecisionTreeClassifier(random_state=42).fit(X_train, y_train)
 nb = GaussianNB().fit(X_train, y_train)
 
-# Save models with the correct .pkl extension
+# Print results
+for name, model in [("Random Forest", rf), ("MLP", mlp), ("Decision Tree", dt), ("Naive Bayes", nb)]:
+    preds = model.predict(X_test)
+    print(f"{name}: {accuracy_score(y_test, preds)*100:.2f}%")
+    print(classification_report(y_test, preds, target_names=le.classes_))
+    print("---")
+
+# Save models
 joblib.dump(rf, r"random_forest.pkl")
 joblib.dump(mlp, r"MLP.pkl")
 joblib.dump(dt, r"random_tree.pkl")
 joblib.dump(nb, r"naive_bayes.pkl")
+joblib.dump(le, r"label_encoder.pkl")
 
-print("✅ Models trained and saved successfully.")
+print("Done")
