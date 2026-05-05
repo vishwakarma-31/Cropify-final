@@ -1,0 +1,20 @@
+credentials:
+  usernames:
+    demo:
+      name: Demo User
+      password: demo123
+      email: demo@example.com
+    admin:
+      name: Admin User
+      password: admin123
+      email: admin@cropify.com
+
+cookie:
+  name: cropify_cookie
+  key: cropify_secret_key_12345
+  expiry_days: 30
+
+pre-authorized:
+  emails:
+    - demo@example.com
+    - admin@cropify.com

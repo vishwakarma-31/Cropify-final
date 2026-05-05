@@ -1,0 +1,359 @@
+rice:
+  image: "assets/Rice.jpg"
+  facts:
+    English: "Rice feeds more than half of the world's population."
+    Hindi: "चावल दुनिया की आधी से अधिक आबादी का भोजन है।"
+    Tamil: "அரிசி உலக மக்கள் தொகையின் பாதிக்குமேல் உணவாகும்."
+  tips:
+    English: "Maintain standing water in the fields."
+    Hindi: "खेतों में पानी भरा रहना चाहिए।"
+    Tamil: "வயல்களில் நிலைநிறைந்த நீரை பராமரிக்கவும்."
+  suggestions:
+    English: "Use high-yielding hybrid seeds."
+    Hindi: "उच्च उपज देने वाले संकर बीजों का उपयोग करें।"
+    Tamil: "உயர் மகசூல் தரும் கலப்பு விதைகளை பயன்படுத்தவும்."
+
+wheat:
+  image: "assets/Wheat.jpg"
+  facts:
+    English: "Wheat is one of the oldest cultivated crops."
+    Hindi: "गेहूं सबसे पुरानी खेती की जाने वाली फसलों में से एक है।"
+    Tamil: "கோதுமை பழமையான விளைவிக்கப்பட்ட பயிர்களில் ஒன்று."
+  tips:
+    English: "Sow during cooler temperatures."
+    Hindi: "ठंडे मौसम में बुवाई करें।"
+    Tamil: "குளிர்ந்த காலநிலையில் விதைப்பை செய்யவும்."
+  suggestions:
+    English: "Apply nitrogen fertilizer in split doses."
+    Hindi: "नाइट्रोजन उर्वरक को विभाजित खुराकों में दें।"
+    Tamil: "நைட்ரஜன் உரத்தை பிரிக்கப்பட்ட அளவுகளில் வழங்கவும்."
+
+maize:
+  image: "assets/Maize.jpg"
+  facts:
+    English: "Maize originated in southern Mexico 10,000 years ago."
+    Hindi: "मक्का की उत्पत्ति 10,000 साल पहले दक्षिणी मेक्सिको में हुई थी।"
+    Tamil: "சோளம் 10,000 ஆண்டுகளுக்கு முன்பு தெற்கு மெக்ஸிகோவில் தோன்றியது."
+  tips:
+    English: "Ensure proper weed management."
+    Hindi: "सही खरपतवार प्रबंधन सुनिश्चित करें।"
+    Tamil: "சரியான கொடிகள் மேலாண்மையை உறுதி செய்யவும்."
+  suggestions:
+    English: "Irrigate at critical growth stages."
+    Hindi: "महत्वपूर्ण वृद्धि चरणों में सिंचाई करें।"
+    Tamil: "முக்கிய வளர்ச்சி நிலைகளில் நீர்ப்பாசனம் செய்யவும்."
+
+bajra:
+  image: "assets/Bajra.jpg"
+  facts:
+    English: "Bajra is a drought-resistant crop."
+    Hindi: "बाजरा एक सूखा प्रतिरोधी फसल है।"
+    Tamil: "கம்பு ஒரு வறண்ட நிலத்திற்கேற்ற பயிர் ஆகும்."
+  tips:
+    English: "Use minimal water for irrigation."
+    Hindi: "सिंचाई के लिए न्यूनतम पानी का उपयोग करें।"
+    Tamil: "நீர்ப்பாசனத்திற்கு குறைந்த நீரை பயன்படுத்தவும்."
+  suggestions:
+    English: "Opt for early sowing before monsoon."
+    Hindi: "मानसून से पहले जल्दी बुवाई करें।"
+    Tamil: "மழைக்காலத்திற்கு முன்பு நேரத்துடன் விதைநிறுவுதல் செய்யவும்."
+
+cotton:
+  image: "assets/Cotton.jpg"
+  facts:
+    English: "Cotton is one of the most widely used natural fibers in the world."
+    Hindi: "कपास दुनिया में सबसे अधिक इस्तेमाल किए जाने वाले प्राकृतिक फाइबर में से एक है।"
+    Tamil: "பருத்தி உலகில் மிகவும் அதிகமாக பயன்படுத்தப்படும் இயற்கை இழைகளில் ஒன்றாகும்."
+  tips:
+    English: "Ensure proper spacing between plants for good air circulation."
+    Hindi: "अच्छे हवा के संचलन के लिए पौधों के बीच उचित दूरी सुनिश्चित करें।"
+    Tamil: "நல்ல காற்றோட்டம் இருக்க தாவரங்களுக்கு இடையில் ஏற்ற இடைவெளியை உறுதி செய்க."
+  suggestions:
+    English: "Use disease-resistant varieties for better yield."
+    Hindi: "बेहतर उपज के लिए रोग प्रतिरोधी किस्मों का उपयोग करें।"
+    Tamil: "சிறந்த விளைச்சலுக்கு நோய் எதிர்ப்பு தகுதியுள்ள இனங்களை பயன்படுத்தவும்."
+
+jute:
+  image: "assets/Jute.jpg"
+  facts:
+    English: "Jute is known as the 'Golden Fiber' and is primarily grown in Bangladesh and India."
+    Hindi: "जूट को 'गोल्डन फाइबर' के नाम से जाना जाता है और इसे मुख्य रूप से बांग्लादेश और भारत में उगाया जाता है।"
+    Tamil: "சணல் 'தங்க இழை' என அழைக்கப்படுகிறது மற்றும் முக்கியமாக வங்காளதேசம் மற்றும் இந்தியாவில் வளர்க்கப்படுகிறது."
+  tips:
+    English: "Jute grows best in well-drained, fertile soils with high rainfall."
+    Hindi: "जूट अच्छी तरह से निकासी वाली, उपजाऊ मिट्टी में और अधिक वर्षा के साथ सबसे अच्छा उगता है।"
+    Tamil: "சணல் நன்கு வடிந்து செல்லும், செழிமன்றற்ற மண்ணில் அதிக மழை பெய்யும் இடங்களில் சிறப்பாக வளரும்."
+  suggestions:
+    English: "Harvest jute when the plants are in full bloom for best fiber quality."
+    Hindi: "सबसे अच्छी फाइबर गुणवत्ता के लिए जूट को पूरी तरह से खिले हुए पौधों से काटें।"
+    Tamil: "சிறந்த இழை தரத்திற்கு சணலை முழு மலர்ச்சியில் உள்ள தாவரங்களை அறுவை செய்யவும்."
+
+coffee:
+  image: "assets/Coffee.jpg"
+  facts:
+    English: "Coffee is the second most traded commodity in the world."
+    Hindi: "कॉफी दुनिया में दूसरा सबसे अधिक कारोबार वाला कमोडिटी है।"
+    Tamil: "காபி உலகில் இரண்டாவது அதிகமாக வர்த்தகம் செய்யப்படும் பொருளாகும்."
+  tips:
+    English: "Best grown in shaded areas with regular pruning."
+    Hindi: "नियमित छंटाई के साथ छायादार क्षेत्रों में सबसे अच्छा उगाया जाता है।"
+    Tamil: "நிழலான பகுதிகளில் வழக்கமான கத்தரித்தல் மூலம் சிறப்பாக வளர்க்கப்படுகிறது."
+  suggestions:
+    English: "Maintain consistent soil moisture and avoid overwatering."
+    Hindi: "मिट्टी की नमी को स्थिर रखें और अधिक पानी देने से बचें।"
+    Tamil: "மண் ஈரப்பதத்தை சீராக பராமரிக்கவும் மற்றும் அதிக நீர் பாய்ச்சுவதை தவிர்க்கவும்."
+
+banana:
+  image: "assets/Banana.jpg"
+  facts:
+    English: "Bananas are technically herbs, and the plant is a giant succulent."
+    Hindi: "केले तकनीकी रूप से जड़ी-बूटियाँ हैं, और पौधा एक विशाल रसीला है।"
+    Tamil: "வாழைப்பழங்கள் தொழில்நுட்ப ரீதியாக மூலிகைகள் ஆகும்."
+  tips:
+    English: "Requires high humidity and protection from strong winds."
+    Hindi: "उच्च आर्द्रता और तेज हवाओं से सुरक्षा की आवश्यकता होती है।"
+    Tamil: "அதிக ஈரப்பதம் மற்றும் பலத்த காற்றிலிருந்து பாதுகாப்பு தேவை."
+  suggestions:
+    English: "Use organic mulch to retain soil moisture."
+    Hindi: "मिट्टी की नमी बनाए रखने के लिए जैविक गीली घास का उपयोग करें।"
+    Tamil: "மண் ஈரப்பதத்தைத் தக்கவைக்க கரிம மூடாக்கைப் பயன்படுத்தவும்."
+
+mango:
+  image: "assets/Mango.jpg"
+  facts:
+    English: "Mango is known as the 'King of Fruits' in many cultures."
+    Hindi: "कई संस्कृतियों में आम को 'फलों का राजा' कहा जाता है।"
+    Tamil: "மாம்பழம் பல கலாச்சாரங்களில் 'கனிகளின் ராஜா' என்று அழைக்கப்படுகிறது."
+  tips:
+    English: "Needs plenty of sunlight and well-drained soil."
+    Hindi: "भरपूर धूप और अच्छी जल निकासी वाली मिट्टी की आवश्यकता होती है।"
+    Tamil: "ஏராளமான சூரிய ஒளி மற்றும் வடிகால் வசதி கொண்ட மண் தேவை."
+  suggestions:
+    English: "Prune trees to encourage airflow and light penetration."
+    Hindi: "हवा के प्रवाह और प्रकाश के प्रवेश को प्रोत्साहित करने के लिए पेड़ों की छंटाई करें।"
+    Tamil: "காற்றோட்டம் மற்றும் ஒளி ஊடுருவலை ஊக்குவிக்க மரங்களை கத்தரிக்கவும்."
+
+coconut:
+  image: "assets/Coconut.jpg"
+  facts:
+    English: "Coconuts can travel thousands of miles across the ocean and still sprout."
+    Hindi: "नारियल समुद्र के पार हजारों मील की यात्रा कर सकते हैं और फिर भी अंकुरित हो सकते हैं।"
+    Tamil: "தேங்காய்கள் கடல் வழியாக ஆயிரக்கணக்கான மைல்கள் பயணித்து இன்னும் முளைக்கும்."
+  tips:
+    English: "Grows best in sandy soils near coastal areas."
+    Hindi: "तटीय क्षेत्रों के पास रेतीली मिट्टी में सबसे अच्छा उगता है।"
+    Tamil: "கடலோரப் பகுதிகளில் உள்ள மணல் பாங்கான மண்ணில் சிறப்பாக வளரும்."
+  suggestions:
+    English: "Ensure regular watering during dry periods for better nut yield."
+    Hindi: "बेहतर अखरोट की उपज के लिए सूखे समय के दौरान नियमित रूप से पानी देना सुनिश्चित करें।"
+    Tamil: "சிறந்த விளைச்சலுக்கு வறண்ட காலங்களில் வழக்கமான நீர் பாய்ச்சுவதை உறுதி செய்யவும்."
+
+grapes:
+  image: "assets/Grapes.jpg"
+  facts:
+    English: "Grapes are about 80% water and have been cultivated for thousands of years."
+    Hindi: "अंगूर में लगभग 80% पानी होता है और हजारों सालों से इसकी खेती की जा रही है।"
+    Tamil: "திராட்சையில் சுமார் 80% நீர் உள்ளது மற்றும் ஆயிரக்கணக்கான ஆண்டுகளாக பயிரிடப்படுகிறது."
+  tips:
+    English: "Vines need strong support and regular pruning."
+    Hindi: "बेलों को मजबूत समर्थन और नियमित छंटाई की आवश्यकता होती है।"
+    Tamil: "கொடிகளுக்கு வலுவான ஆதரவு மற்றும் வழக்கமான கத்தரித்தல் தேவை."
+  suggestions:
+    English: "Monitor for pests like aphids and powdery mildew."
+    Hindi: "एफिड्स और पाउडर फफूंदी जैसे कीटों की निगरानी करें।"
+    Tamil: "அசுவினி மற்றும் சாம்பல் நோய் போன்ற பூச்சிகளைக் கண்காணிக்கவும்."
+
+apple:
+  image: "assets/Apple.jpg"
+  facts:
+    English: "There are more than 7,500 varieties of apples grown worldwide."
+    Hindi: "दुनिया भर में सेब की 7,500 से अधिक किस्में उगाई जाती हैं।"
+    Tamil: "உலகம் முழுவதும் 7,500-க்கும் மேற்பட்ட ஆப்பிள் வகைகள் பயிரிடப்படுகின்றன."
+  tips:
+    English: "Requires a certain number of 'chill hours' in winter to fruit."
+    Hindi: "फल देने के लिए सर्दियों में एक निश्चित संख्या में 'ठंडे घंटे' की आवश्यकता होती है।"
+    Tamil: "கனி கொடுக்க குளிர்காலத்தில் ஒரு குறிப்பிட்ட 'குளிர் நேரம்' தேவைப்படுகிறது."
+  suggestions:
+    English: "Thin out heavy clusters to improve fruit size and quality."
+    Hindi: "फलों के आकार और गुणवत्ता में सुधार के लिए भारी गुच्छों को पतला करें।"
+    Tamil: "பழத்தின் அளவு மற்றும் தரத்தை மேம்படுத்த கனமான கொத்துகளை மெல்லியதாக மாற்றவும்."
+
+orange:
+  image: "assets/Orange.jpg"
+  facts:
+    English: "Oranges are a hybrid between pomelo and mandarin."
+    Hindi: "संतरे पोमेलो और मंदारिन के बीच एक संकर हैं।"
+    Tamil: "ஆரஞ்சு பழங்கள் பப்பளிமாஸ் மற்றும் மாண்டரின் இடையே ஒரு கலப்பினமாகும்."
+  tips:
+    English: "Sensitive to frost; needs warm climate and plenty of sun."
+    Hindi: "ठंढ के प्रति संवेदनशील; गर्म जलवायु और भरपूर धूप की जरूरत है।"
+    Tamil: "உறைபனிக்கு உணர்திறன் கொண்டது; வெப்பமான காலநிலை மற்றும் சூரிய ஒளி தேவை."
+  suggestions:
+    English: "Apply citrus-specific fertilizers for optimal growth."
+    Hindi: "इष्टतम विकास के लिए साइट्रस-विशिष्ट उर्वरकों का प्रयोग करें।"
+    Tamil: "சிறந்த வளர்ச்சிக்கு சிட்ரஸ் சார்ந்த உரங்களைப் பயன்படுத்தவும்."
+
+papaya:
+  image: "assets/Papaya.jpg"
+  facts:
+    English: "Papaya plants grow quickly and can produce fruit within a year."
+    Hindi: "पपीते के पौधे जल्दी बढ़ते हैं और एक साल के भीतर फल दे सकते हैं।"
+    Tamil: "பப்பாளி செடிகள் விரைவாக வளர்ந்து ஒரு வருடத்திற்குள் பலன் தரும்."
+  tips:
+    English: "Avoid waterlogging; the roots are prone to rot."
+    Hindi: "जलभराव से बचें; जड़ें सड़ने का खतरा रहता है।"
+    Tamil: "தண்ணீர் தேங்குவதைத் தவிர்க்கவும்; வேர்கள் அழுக வாய்ப்புள்ளது."
+  suggestions:
+    English: "Plant in groups to ensure pollination between male and female plants."
+    Hindi: "नर और मादा पौधों के बीच परागण सुनिश्चित करने के लिए समूहों में रोपण करें।"
+    Tamil: "ஆண் மற்றும் பெண் தாவரங்களுக்கு இடையே மகரந்தச் சேர்க்கையை உறுதிப்படுத்த குழுக்களாக நடவு செய்யவும்."
+
+pomegranate:
+  image: "assets/Pomegranate.jpg"
+  facts:
+    English: "Pomegranates are symbols of fertility and prosperity in many cultures."
+    Hindi: "अनार कई संस्कृतियों में प्रजनन क्षमता और समृद्धि के प्रतीक हैं।"
+    Tamil: "மாதுளை பல கலாச்சாரங்களில் வளமை மற்றும் செழிப்பின் அடையாளமாகும்."
+  tips:
+    English: "Drought-tolerant once established but needs water for fruiting."
+    Hindi: "एक बार स्थापित होने के बाद सूखा-सहिष्णु लेकिन फल देने के लिए पानी की आवश्यकता होती है।"
+    Tamil: "ஒருமுறை வேர் பிடித்தால் வறட்சியைத் தாங்கும், ஆனால் காய்க்க தண்ணீர் தேவை."
+  suggestions:
+    English: "Prune suckers from the base to maintain a clean tree form."
+    Hindi: "पेड़ के साफ आकार को बनाए रखने के लिए आधार से चूसने वालों की छंटाई करें।"
+    Tamil: "மரத்தின் வடிவத்தை பராமரிக்க அடிப்பகுதியிலிருந்து தேவையற்ற கிளைகளை கத்தரிக்கவும்."
+
+watermelon:
+  image: "assets/Watermelon.jpg"
+  facts:
+    English: "Watermelons are about 92% water, making them perfect for hydration."
+    Hindi: "तरबूज में लगभग 92% पानी होता है, जो उन्हें जलयोजन के लिए एकदम सही बनाता है।"
+    Tamil: "தர்பூசணிகளில் சுமார் 92% நீர் உள்ளது."
+  tips:
+    English: "Needs a long, warm growing season and plenty of space for vines."
+    Hindi: "एक लंबे, गर्म बढ़ते मौसम और बेलों के लिए भरपूर जगह की जरूरत है।"
+    Tamil: "நீண்ட, வெப்பமான வளரும் காலம் மற்றும் கொடிகளுக்கு ஏராளமான இடம் தேவை."
+  suggestions:
+    English: "Mulch with straw to keep fruit off the soil and prevent rot."
+    Hindi: "फलों को मिट्टी से दूर रखने और सड़न रोकने के लिए पुआल के साथ गीली घास।"
+    Tamil: "பழங்கள் மண்ணில் படாமல் இருக்கவும், அழுகுவதைத் தவிர்க்கவும் வைக்கோல் பயன்படுத்தவும்."
+
+muskmelon:
+  image: "assets/Muskmelon.jpg"
+  facts:
+    English: "Muskmelons are rich in Vitamin A and Vitamin C."
+    Hindi: "खरबूजे विटामिन ए और विटामिन सी से भरपूर होते हैं।"
+    Tamil: "முலாம்பழத்தில் வைட்டமின் ஏ மற்றும் வைட்டமின் சி நிறைந்துள்ளது."
+  tips:
+    English: "Grows best in loamy, well-drained soil with a pH of 6.0 to 7.0."
+    Hindi: "6.0 से 7.0 के पीएच के साथ दोमट, अच्छी तरह से जल निकासी वाली मिट्टी में सबसे अच्छा उगता है।"
+    Tamil: "6.0 முதல் 7.0 pH கொண்ட நல்ல வடிகால் வசதியுள்ள மண்ணில் சிறப்பாக வளரும்."
+  suggestions:
+    English: "Provide consistent moisture during fruit development."
+    Hindi: "फल विकास के दौरान लगातार नमी प्रदान करें।"
+    Tamil: "பழம் வளர்ச்சியின் போது சீரான ஈரப்பதத்தை வழங்கவும்."
+
+chickpea:
+  image: "assets/Chickpea.jpg"
+  facts:
+    English: "Chickpeas are high in protein and are a staple in Mediterranean and Indian diets."
+    Hindi: "चने में प्रोटीन अधिक होता है और ये भूमध्यसागरीय और भारतीय आहार में मुख्य हैं।"
+    Tamil: "சுண்டக்கடலையில் புரதம் அதிகம் மற்றும் இது இந்திய உணவில் பிரதானமானது."
+  tips:
+    English: "Grows well in cool climates and well-drained soil."
+    Hindi: "ठंडी जलवायु और अच्छी जल निकासी वाली मिट्टी में अच्छी तरह से उगता है।"
+    Tamil: "குளிர்ந்த காலநிலை மற்றும் வடிகால் வசதியுள்ள மண்ணில் நன்றாக வளரும்."
+  suggestions:
+    English: "Treat seeds with fungicides to prevent root rot."
+    Hindi: "जड़ सड़न को रोकने के लिए बीजों को कवकनाशी के साथ उपचारित करें।"
+    Tamil: "வேர் அழுகலைத் தடுக்க விதைகளை பூஞ்சைக் கொல்லிகளால் நேர்த்தி செய்யவும்."
+
+kidneybeans:
+  image: "assets/Kidneybeans.jpg"
+  facts:
+    English: "Kidney beans are named for their visual resemblance to a human kidney."
+    Hindi: "राजमा का नाम मानव गुर्दे के साथ उनकी दृश्य समानता के लिए रखा गया है।"
+    Tamil: "கிட்னி பீன்ஸ் மனித சிறுநீரகத்தைப் போன்ற தோற்றம் கொண்டதால் இப்பெயர் பெற்றது."
+  tips:
+    English: "Needs consistent moisture and a support structure for climbing varieties."
+    Hindi: "चढ़ने वाली किस्मों के लिए लगातार नमी और एक समर्थन संरचना की आवश्यकता होती है।"
+    Tamil: "ஏறும் வகைகளுக்கு சீரான ஈரப்பதம் மற்றும் ஆதரவு அமைப்பு தேவை."
+  suggestions:
+    English: "Avoid overhead watering to reduce the risk of foliage diseases."
+    Hindi: "पत्तियों के रोगों के जोखिम को कम करने के लिए ऊपर से पानी देने से बचें।"
+    Tamil: "இலை நோய்களின் அபாயத்தைக் குறைக்க மேலிருந்து நீர் பாய்ச்சுவதைத் தவிர்க்கவும்."
+
+pigeonpeas:
+  image: "assets/Pigeonpeas.jpg"
+  facts:
+    English: "Pigeon peas are highly drought-tolerant and can grow in poor soils."
+    Hindi: "अरहर अत्यधिक सूखा-सहिष्णु है और खराब मिट्टी में उग सकती है।"
+    Tamil: "துவரம் பருப்பு வறட்சியைத் தாங்கும் மற்றும் தரிசு மண்ணிலும் வளரும்."
+  tips:
+    English: "Often intercropped with cereals like sorghum or pearl millet."
+    Hindi: "अक्सर ज्वार या बाजरा जैसे अनाज के साथ अंतर-फसल।"
+    Tamil: "பெரும்பாலும் சோளம் அல்லது கம்பு போன்ற தானியங்களுடன் ஊடுபயிராக வளர்க்கப்படுகிறது."
+  suggestions:
+    English: "Harvest pods when they are dry for storage or green for fresh use."
+    Hindi: "भंडारण के लिए सूखे या ताजे उपयोग के लिए हरे होने पर फलियां काटें।"
+    Tamil: "சேமிப்பிற்காக உலர்ந்த நிலையில் அல்லது புதிய பயன்பாட்டிற்கு பச்சையாக அறுவடை செய்யவும்."
+
+mothbeans:
+  image: "assets/Mothbeans.jpg"
+  facts:
+    English: "Moth beans are one of the most drought-resistant pulses."
+    Hindi: "मोठ की फलियाँ सबसे अधिक सूखा-प्रतिरोधी दालों में से एक हैं।"
+    Tamil: "மோத் பீன்ஸ் வறட்சியைத் தாங்கும் பருப்பு வகைகளில் ஒன்றாகும்."
+  tips:
+    English: "Grows best in hot, arid regions with sandy soil."
+    Hindi: "रेतीली मिट्टी के साथ गर्म, शुष्क क्षेत्रों में सबसे अच्छा उगता है।"
+    Tamil: "மணல் பாங்கான மண்ணுடன் வெப்பமான, வறண்ட பகுதிகளில் சிறப்பாக வளரும்."
+  suggestions:
+    English: "Keep the field free of weeds during early growth stages."
+    Hindi: "प्रारंभिक विकास चरणों के दौरान खेत को खरपतवारों से मुक्त रखें।"
+    Tamil: "ஆரம்ப வளர்ச்சி நிலைகளில் வயலில் களைகள் இல்லாமல் பார்த்துக் கொள்ளவும்."
+
+mungbean:
+  image: "assets/Mungbean.jpg"
+  facts:
+    English: "Mung beans are highly nutritious and can be grown in short seasons."
+    Hindi: "मूंग की दाल अत्यधिक पौष्टिक होती है और कम मौसम में उगाई जा सकती है।"
+    Tamil: "பாசிப்பருப்பு அதிக சத்துடையது மற்றும் குறுகிய காலத்தில் வளரக்கூடியது."
+  tips:
+    English: "Prefers well-drained loamy soil and warm temperatures."
+    Hindi: "अच्छी तरह से जल निकासी वाली दोमट मिट्टी और गर्म तापमान पसंद करता है।"
+    Tamil: "நல்ல வடிகால் வசதியுள்ள மண் மற்றும் வெப்பமான காலநிலையை விரும்புகிறது."
+  suggestions:
+    English: "Monitor for pod borers during the flowering and pod-filling stages."
+    Hindi: "फूल आने और फलियां भरने के दौरान पॉड बोरर्स की निगरानी करें।"
+    Tamil: "பூக்கும் மற்றும் காய் பிடிக்கும் பருவத்தில் பூச்சிகளைக் கண்காணிக்கவும்."
+
+blackgram:
+  image: "assets/Blackgram.jpg"
+  facts:
+    English: "Black gram is widely used in South Asian cooking for making dal and idli batter."
+    Hindi: "दक्षिण एशियाई खाना पकाने में दाल और इडली बैटर बनाने के लिए उड़द का व्यापक रूप से उपयोग किया जाता है।"
+    Tamil: "உளுந்து தெற்காசிய சமையலில் பருப்பு மற்றும் இட்லி மாவு தயாரிக்க பரவலாகப் பயன்படுத்தப்படுகிறது."
+  tips:
+    English: "Grows well in heavy soils and can tolerate some waterlogging."
+    Hindi: "भारी मिट्टी में अच्छी तरह से उगता है और कुछ जलभराव सहन कर सकता है।"
+    Tamil: "களிமண் பாங்கான மண்ணில் நன்றாக வளரும் மற்றும் சிறிய நீர் தேக்கத்தைத் தாங்கும்."
+  suggestions:
+    English: "Apply phosphatic fertilizers to encourage root development and nitrogen fixation."
+    Hindi: "जड़ विकास और नाइट्रोजन स्थिरीकरण को प्रोत्साहित करने के लिए फॉस्फेटिक उर्वरक डालें।"
+    Tamil: "வேர் வளர்ச்சி மற்றும் நைட்ரஜன் நிலைப்படுத்தலை ஊக்குவிக்க பாஸ்பேட் உரங்களைப் பயன்படுத்தவும்."
+
+lentil:
+  image: "assets/Lentil.jpg"
+  facts:
+    English: "Lentils are one of the oldest known sources of food, dating back 9,000 years."
+    Hindi: "मसूर भोजन के सबसे पुराने ज्ञात स्रोतों में से एक है, जो 9,000 साल पुराना है।"
+    Tamil: "பருப்பு வகைகள் 9,000 ஆண்டுகளுக்கு முந்தைய பழமையான உணவு ஆதாரங்களில் ஒன்றாகும்."
+  tips:
+    English: "Requires a cool growing season and does not tolerate heat during flowering."
+    Hindi: "एक ठंडे बढ़ते मौसम की आवश्यकता होती है और फूल आने के दौरान गर्मी को सहन नहीं करता है।"
+    Tamil: "குளிர்ந்த வளரும் பருவம் தேவை மற்றும் பூக்கும் போது வெப்பத்தைத் தாங்காது."
+  suggestions:
+    English: "Sow early in the spring to take advantage of soil moisture."
+    Hindi: "मिट्टी की नमी का लाभ उठाने के लिए वसंत ऋतु में जल्दी बुवाई करें।"
+    Tamil: "மண் ஈரப்பதத்தைப் பயன்படுத்திக் கொள்ள வசந்த காலத்தின் ஆரம்பத்தில் விதைக்கவும்."

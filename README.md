@@ -1,126 +1,111 @@
-# Cropify ML
+# 🌾 CROPIFY | Smart Crop Recommendation System
 
-## Description
+## 📝 Description
 
-Cropify ML is a smart crop recommendation system that leverages machine learning algorithms to suggest the most suitable crops based on soil and climate parameters. The system integrates real-time weather data and provides comprehensive crop information including growing tips, interesting facts, and yield improvement suggestions. Built with a user-friendly web interface, it supports multiple languages and offers data analysis capabilities.
+**Cropify** is a professional-grade smart agriculture platform that leverages Machine Learning to help farmers and agronomists make data-driven decisions. By analyzing soil nutrients (N-P-K), pH, rainfall, and real-time climate data, Cropify recommends the most suitable crops for a specific land area to maximize yield and sustainability.
 
-## Features
-
-- **Web Interface**: Interactive Streamlit-based application with modern UI design
-- **Weather Integration**: Automatic location detection and real-time weather data fetching using OpenWeatherMap API
-- **Multi-lingual Support**: Available in English, Hindi, and Tamil languages
-- **Machine Learning Models**: Multiple ML algorithms including Random Forest, MLP (Multi-Layer Perceptron), Naive Bayes, and Decision Tree
-- **Crop Information**: Detailed information for major crops (Rice, Wheat, Maize, Bajra, Cotton, Jute) with images, facts, and cultivation tips
-- **Data Analysis**: Correlation analysis with interactive heatmaps for uploaded datasets
-- **Workflow Visualization**: Visual representation of the ML model workflow and system architecture
-- **Real-time Prediction**: Instant crop recommendations based on soil parameters (N, P, K, pH) and environmental factors
-
-## Installation
-
-### Prerequisites
-- Python 3.7 or higher
-- Internet connection for weather data fetching
-
-### Steps
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd cropify-ml
-   ```
-
-2. Create a virtual environment (optional but recommended):
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install -r requirement.txt
-   ```
-
-4. Ensure all model files (.pkl) and assets are in the correct directories:
-   - ML models: `random_forest.pkl`, `MLP.pkl`, `naive_bayes.pkl`, `random_tree.pkl`
-   - Assets: `assets/` folder with crop images and diagrams
-
-## Usage
-
-### Running the Application
-1. Start the Streamlit app:
-   ```bash
-   streamlit run cropii.py
-   ```
-
-2. Open your browser and navigate to the provided local URL (typically http://localhost:8501)
-
-### Application Interface
-
-#### Language Selection
-- Use the sidebar to select your preferred language (English, Hindi, Tamil)
-
-#### Weather Information
-- The app automatically detects your location and fetches current weather data
-- Displays temperature, humidity, and weather conditions
-- Falls back to default values if weather data cannot be fetched
-
-#### Crop Prediction Tab
-1. Input soil parameters:
-   - Nitrogen (N): 0-140
-   - Phosphorus (P): 0-140
-   - Potassium (K): 0-200
-   - Soil pH: 3.5-9.0
-
-2. Environmental parameters:
-   - Temperature (°C): 10.0-45.0 (auto-filled from weather data)
-   - Humidity (%): 10.0-100.0 (auto-filled from weather data)
-   - Rainfall (mm): 0.0-400.0
-
-3. Select ML model from the sidebar:
-   - Random Forest
-   - MLP
-   - Naive Bayes
-   - Decision Tree
-
-4. Click "Predict Crop" to get recommendations
-
-5. View results including:
-   - Recommended crop with image
-   - Interesting facts about the crop
-   - Cultivation tips
-   - Suggestions to improve yield
-
-#### Data Analysis Tab
-- Upload CSV datasets for correlation analysis
-- View data preview
-- Generate interactive correlation heatmaps for numeric features
-
-#### Workflow Models Tab
-- Visualize the ML model workflow
-- Understand the system architecture
-- View systematic workflow diagrams
-
-## Contributing
-
-We welcome contributions to improve Cropify ML! Please follow these guidelines:
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Make your changes and test thoroughly
-4. Commit your changes: `git commit -m 'Add some feature'`
-5. Push to the branch: `git push origin feature-name`
-6. Submit a pull request
-
-### Development Guidelines
-- Follow PEP 8 style guidelines for Python code
-- Add docstrings to new functions
-- Test your changes with different scenarios
-- Update documentation for any new features
-- Ensure compatibility with existing dependencies
-
-## License
-
-This project is licensed under the MIT License.
+The system features a premium web interface built with Streamlit, real-time weather integration via OpenWeather API, and support for 22 different crop types with detailed cultivation guides in multiple languages.
 
 ---
 
-**Note**: Make sure to obtain your own OpenWeatherMap API key and replace it in the code if you plan to deploy or modify the weather integration functionality.
+## ✨ Key Features
+
+-   **🧠 Multi-Model Prediction**: Choose between four specialized ML models:
+    -   **Random Forest** (High Accuracy)
+    -   **MLP** (Neural Network)
+    -   **Naive Bayes** (Probabilistic)
+    -   **Decision Tree** (Interpretability)
+-   **🔐 Secure Access**: Built-in authentication system with configurable user roles (Admin/Demo).
+-   **🌦️ Live Weather Integration**: Automatic city detection and real-time fetching of Temperature and Humidity using the OpenWeatherMap API.
+-   **🌍 Multi-lingual Support**: Full UI and database support for **English**, **Hindi**, and **Tamil**.
+-   **📊 Dynamic Crop Database**: Powered by a customizable `crops.yaml` file, providing:
+    -   High-quality crop imagery.
+    -   Cultivation tips & yield improvement suggestions.
+    -   Interesting botanical facts.
+-   **📈 Data Analysis**: Interactive "Data Analysis" tab to upload CSV datasets and generate feature correlation heatmaps.
+-   **🛠️ Robust Pipeline**: Implements `StandardScaler` for feature normalization and `LabelEncoder` for target decoding, ensuring high prediction reliability.
+
+---
+
+## 🚀 Installation & Setup
+
+### Prerequisites
+-   Python 3.10 or higher
+-   OpenWeatherMap API Key (optional, default provided)
+
+### 1. Clone the Repository
+```bash
+git clone <repository-url>
+cd Cropify-final
+```
+
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Verify Model Assets
+Ensure the following files are present in the root directory:
+-   **Models**: `random_forest.pkl`, `MLP.pkl`, `naive_bayes.pkl`, `random_tree.pkl`
+-   **Preprocessing**: `scaler.pkl`, `label_encoder.pkl`
+-   **Database**: `crops.yaml`, `config.yaml`
+
+---
+
+## 💻 Usage
+
+### Starting the Application
+To run the web interface, use:
+```bash
+python -m streamlit run cropii.py
+```
+
+### Login Credentials
+Check `config.yaml` for active users. Default demo credentials:
+-   **Username**: `demo`
+-   **Password**: `demo123`
+
+### Using the Prediction Tool
+1.  **Select Language**: Choose your language from the sidebar.
+2.  **Configure Location**: The app will attempt to auto-detect your city. You can manually override this in the sidebar.
+3.  **Input Soil Data**: Enter the Nitrogen (N), Phosphorus (P), Potassium (K), and pH levels.
+4.  **Run Prediction**: Click the **Predict Crop** button to see the AI recommendation.
+
+---
+
+## 📂 Project Structure
+
+-   `cropii.py`: Main application entry point.
+-   `crops.yaml`: Central database for crop-specific facts and tips.
+-   `config.yaml`: Configuration for authentication and cookies.
+-   `model_training.py`: Script used to train and export the ML models.
+-   `assets/`: Directory containing crop images and workflow diagrams.
+-   `csv/`: Dataset storage (e.g., `Crop_recommendation.csv`).
+
+---
+
+## 🛠️ Tech Stack
+
+-   **Frontend**: Streamlit
+-   **ML Framework**: Scikit-Learn
+-   **Data Processing**: Pandas, NumPy
+-   **Visualization**: Seaborn, Matplotlib
+-   **Authentication**: Streamlit-Authenticator
+-   **Weather**: Requests (OpenWeather API)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+1.  Fork the Project.
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`).
+4.  Push to the Branch (`git push origin feature/AmazingFeature`).
+5.  Open a Pull Request.
+
+---
+
+## 📜 License
+
+Distributed under the MIT License. See `LICENSE` for more information.

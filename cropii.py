@@ -7,6 +7,22 @@ import matplotlib.pyplot as plt
 import os
 import requests
 import base64
+import yaml
+from yaml.loader import SafeLoader
+import streamlit_authenticator as stauth
+
+# =============================================================================
+# AUTHENTICATION SETUP
+# =============================================================================
+with open('config.yaml', 'r') as file:
+    config = yaml.load(file, Loader=SafeLoader)
+
+authenticator = stauth.Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days']
+)
 
 # =============================================================================
 # WEATHER SETUP AND FUNCTIONS
@@ -156,119 +172,33 @@ translations = {
 # --- CORRECTION: Use relative paths from the 'assets' folder ---
 # Note: For crops without specific images (cotton, jute), we're using Rice.jpg as a placeholder
 # TODO: Add specific images for cotton and jute when available
-crop_info = {
-    "rice": {
-        "image": r"assets/Rice.jpg",
-        "facts": {
-            "English": "Rice feeds more than half of the world's population.",
-            "Hindi": "चावल दुनिया की आधी से अधिक आबादी का भोजन है।",
-            "Tamil": "அரிசி உலக மக்கள் தொகையின் பாதிக்குமேல் உணவாகும்."
-        },
-        "tips": {
-            "English": "Maintain standing water in the fields.",
-            "Hindi": "खेतों में पानी भरा रहना चाहिए।",
-            "Tamil": "வயல்களில் நிலைநிறைந்த நீரை பராமரிக்கவும்."
-        },
-        "suggestions": {
-            "English": "Use high-yielding hybrid seeds.",
-            "Hindi": "उच्च उपज देने वाले संकर बीजों का उपयोग करें।",
-            "Tamil": "உயர் மகசூல் தரும் கலப்பு விதைகளை பயன்படுத்தவும்."
-        }
-    },
-    "wheat": {
-        "image": r"assets/Wheat.jpg",
-        "facts": {
-            "English": "Wheat is one of the oldest cultivated crops.",
-            "Hindi": "गेहूं सबसे पुरानी खेती की जाने वाली फसलों में से एक है।",
-            "Tamil": "கோதுமை பழமையான விளைவிக்கப்பட்ட பயிர்களில் ஒன்று."
-        },
-        "tips": {
-            "English": "Sow during cooler temperatures.",
-            "Hindi": "ठंडे मौसम में बुवाई करें।",
-            "Tamil": "குளிர்ந்த காலநிலையில் விதைப்பை செய்யவும்."
-        },
-        "suggestions": {
-            "English": "Apply nitrogen fertilizer in split doses.",
-            "Hindi": "नाइट्रोजन उर्वरक को विभाजित खुराकों में दें।",
-            "Tamil": "நைட்ரஜன் உரத்தை பிரிக்கப்பட்ட அளவுகளில் வழங்கவும்."
-        }
-    },
-    "maize": {
-        "image": r"assets/Maize.jpg",
-        "facts": {
-            "English": "Maize originated in southern Mexico 10,000 years ago.",
-            "Hindi": "मक्का की उत्पत्ति 10,000 साल पहले दक्षिणी मेक्सिको में हुई थी।",
-            "Tamil": "சோளம் 10,000 ஆண்டுகளுக்கு முன்பு தெற்கு மெக்ஸிகோவில் தோன்றியது."
-        },
-        "tips": {
-            "English": "Ensure proper weed management.",
-            "Hindi": "सही खरपतवार प्रबंधन सुनिश्चित करें।",
-            "Tamil": "சரியான கொடிகள் மேலாண்மையை உறுதி செய்யவும்."
-        },
-        "suggestions": {
-            "English": "Irrigate at critical growth stages.",
-            "Hindi": "महत्वपूर्ण वृद्धि चरणों में सिंचाई करें।",
-            "Tamil": "முக்கிய வளர்ச்சி நிலைகளில் நீர்ப்பாசனம் செய்யவும்."
-        }
-    },
-    "bajra": {
-        "image": r"assets/Bajra.jpg",
-        "facts": {
-            "English": "Bajra is a drought-resistant crop.",
-            "Hindi": "बाजरा एक सूखा प्रतिरोधी फसल है।",
-            "Tamil": "கம்பு ஒரு வறண்ட நிலத்திற்கேற்ற பயிர் ஆகும்."
-        },
-        "tips": {
-            "English": "Use minimal water for irrigation.",
-            "Hindi": "सिंचाई के लिए न्यूनतम पानी का उपयोग करें।",
-            "Tamil": "நீர்ப்பாசனத்திற்கு குறைந்த நீரை பயன்படுத்தவும்."
-        },
-        "suggestions": {
-            "English": "Opt for early sowing before monsoon.",
-            "Hindi": "मानसून से पहले जल्दी बुवाई करें।",
-            "Tamil": "மழைக்காலத்திற்கு முன்பு நேரத்துடன் விதைநிறுவுதல் செய்யவும்."
-        }
-    },
-    "cotton": {
-        "image": r"assets/Rice.jpg",
-        "facts": {
-            "English": "Cotton is one of the most widely used natural fibers in the world.",
-            "Hindi": "कपास दुनिया में सबसे अधिक इस्तेमाल किए जाने वाले प्राकृतिक फाइबर में से एक है।",
-            "Tamil": "பருத்தி உலகில் மிகவும் அதிகமாக பயன்படுத்தப்படும் இயற்கை இழைகளில் ஒன்றாகும்."
-        },
-        "tips": {
-            "English": "Ensure proper spacing between plants for good air circulation.",
-            "Hindi": "अच्छे हवा के संचलन के लिए पौधों के बीच उचित दूरी सुनिश्चित करें।",
-            "Tamil": "நல்ல காற்றோட்டம் இருக்க தாவரங்களுக்கு இடையில் ஏற்ற இடைவெளியை உறுதி செய்க."
-        },
-        "suggestions": {
-            "English": "Use disease-resistant varieties for better yield.",
-            "Hindi": "बेहतर उपज के लिए रोग प्रतिरोधी किस्मों का उपयोग करें।",
-            "Tamil": "சிறந்த விளைச்சலுக்கு நோய் எதிர்ப்பு தகுதியுள்ள இனங்களை பயன்படுத்தவும்."
-        }
-    },
-    "jute": {
-        "image": r"assets/Rice.jpg",
-        "facts": {
-            "English": "Jute is known as the 'Golden Fiber' and is primarily grown in Bangladesh and India.",
-            "Hindi": "जूट को 'गोल्डन फाइबर' के नाम से जाना जाता है और इसे मुख्य रूप से बांग्लादेश और भारत में उगाया जाता है।",
-            "Tamil": "சணல் 'தங்க இழை' என அழைக்கப்படுகிறது மற்றும் முக்கியமாக வங்காளதேசம் மற்றும் இந்தியாவில் வளர்க்கப்படுகிறது."
-        },
-        "tips": {
-            "English": "Jute grows best in well-drained, fertile soils with high rainfall.",
-            "Hindi": "जूट अच्छी तरह से निकासी वाली, उपजाऊ मिट्टी में और अधिक वर्षा के साथ सबसे अच्छा उगता है।",
-            "Tamil": "சணல் நன்கு வடிந்து செல்லும், செழிமன்றற்ற மண்ணில் அதிக மழை பெய்யும் இடங்களில் சிறப்பாக வளரும்."
-        },
-        "suggestions": {
-            "English": "Harvest jute when the plants are in full bloom for best fiber quality.",
-            "Hindi": "सबसे अच्छी फाइबर गुणवत्ता के लिए जूट को पूरी तरह से खिले हुए पौधों से काटें।",
-            "Tamil": "சிறந்த இழை தரத்திற்கு சணலை முழு மலர்ச்சியில் உள்ள தாவரங்களை அறுவை செய்யவும்."
-        }
-    }
-}
+# --- LOAD CROP DATA FROM YAML ---
+if os.path.exists('crops.yaml'):
+    with open('crops.yaml', 'r', encoding='utf-8') as file:
+        crop_info = yaml.load(file, Loader=SafeLoader)
+else:
+    crop_info = {}
+    st.error("crops.yaml not found! Please make sure it's in the project directory.")
 
 # ---------------------- Streamlit Config and Styling --------------
 st.set_page_config(page_title="🌾 CROPIFY | Smart Crop Recommendation", layout="wide", page_icon="🌿")
+
+# =============================================================================
+# AUTHENTICATION CHECK
+# =============================================================================
+try:
+    authenticator.login(location='main', key='Login')
+except Exception as e:
+    st.error(e)
+
+if st.session_state['authentication_status'] == True:
+    pass  # User is authenticated
+elif st.session_state['authentication_status'] == False:
+    st.error('Invalid username or password')
+    st.stop()
+else:
+    st.info('Please log in to access the application')
+    st.stop()
 
 st.markdown("""
     <style>
@@ -354,6 +284,15 @@ else:
 
 # -------------------- Sidebar ----------------------
 st.sidebar.title("CONFIGURATIONS")
+
+# Logout button
+try:
+    authenticator.logout(location='sidebar', key='Logout')
+except Exception as e:
+    st.sidebar.error(e)
+
+st.sidebar.info(f"Welcome, {st.session_state['name']}!", icon="👋")
+
 selected_language = st.sidebar.selectbox("Select Language", ["English","Hindi", "Tamil"])
 language = translations[selected_language]
 
@@ -442,6 +381,10 @@ if not models:
     st.error("No ML models were found. Please make sure the .pkl files are in the main project directory.")
     st.stop()
 
+# Load Scaler and Label Encoder
+scaler = joblib.load(r"scaler.pkl") if os.path.exists(r"scaler.pkl") else None
+le = joblib.load(r"label_encoder.pkl") if os.path.exists(r"label_encoder.pkl") else None
+
 selected_model = st.sidebar.selectbox("ML Model", list(models.keys()))
 model = models[selected_model]
 
@@ -475,21 +418,39 @@ with tab1:
         feature_names = ['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall']
         input_data = pd.DataFrame([[nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall]], 
                                   columns=feature_names)
-        prediction = model.predict(input_data)[0]
+        
+        # Scale the data if scaler is available
+        if scaler:
+            input_data_scaled = scaler.transform(input_data)
+        else:
+            input_data_scaled = input_data
+
+        prediction_encoded = model.predict(input_data_scaled)[0]
+        
+        # Decode the prediction if label encoder is available
+        if le:
+            prediction = le.inverse_transform([prediction_encoded])[0]
+        else:
+            prediction = str(prediction_encoded)
+            
         crop_lower = prediction.lower()
 
         st.success(f"✅ {language['predict_crop']} using {selected_model}: **{prediction.capitalize()}**")
 
         if crop_lower in crop_info:
-            crop_img_path = crop_info[crop_lower]["image"]
-            if os.path.exists(crop_img_path):
-                st.image(crop_img_path, width=300, caption=f"{prediction.capitalize()}")
-            else:
-                st.warning(f"Image for {prediction.capitalize()} not found.")
+            crop_data = crop_info[crop_lower]
+            crop_img_path = crop_data.get("image", "assets/Rice.jpg")
+            
+            # Use fallback image if specific one doesn't exist
+            if not os.path.exists(crop_img_path):
+                crop_img_path = r"assets/Rice.jpg"
+                
+            st.image(crop_img_path, width=400, caption=f"{prediction.capitalize()}")
 
-            fact = crop_info[crop_lower]["facts"][selected_language]
-            tip = crop_info[crop_lower]["tips"][selected_language]
-            suggestion = crop_info[crop_lower]["suggestions"][selected_language]
+            # Fetch translations with fallback to English
+            fact = crop_data.get("facts", {}).get(selected_language, crop_data.get("facts", {}).get("English", "No facts available."))
+            tip = crop_data.get("tips", {}).get(selected_language, crop_data.get("tips", {}).get("English", "No tips available."))
+            suggestion = crop_data.get("suggestions", {}).get(selected_language, crop_data.get("suggestions", {}).get("English", "No suggestions available."))
 
             st.markdown('<div class="section-card">', unsafe_allow_html=True)
             st.subheader(f"🌟 {language['facts']}")
@@ -502,7 +463,7 @@ with tab1:
             st.warning(suggestion)
             st.markdown('</div>', unsafe_allow_html=True)
         else:
-            st.warning("🔍 Info about this crop is not available yet!")
+            st.warning(f"🔍 Info about {prediction.capitalize()} is not available in the database yet!")
 
 # ---------------- Data Analysis Tab ------------------
 with tab2:

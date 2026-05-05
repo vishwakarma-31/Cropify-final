@@ -5,7 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.metrics import accuracy_score, classification_report
 import joblib
 
@@ -18,8 +18,12 @@ y = df["label"]
 le = LabelEncoder()
 y_encoded = le.fit_transform(y)
 
+# Scale features using StandardScaler
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y_encoded, test_size=0.2, random_state=42, stratify=y_encoded
+    X_scaled, y_encoded, test_size=0.2, random_state=42, stratify=y_encoded
 )
 
 # Train models
@@ -41,5 +45,6 @@ joblib.dump(mlp, r"MLP.pkl")
 joblib.dump(dt, r"random_tree.pkl")
 joblib.dump(nb, r"naive_bayes.pkl")
 joblib.dump(le, r"label_encoder.pkl")
+joblib.dump(scaler, r"scaler.pkl")
 
 print("Done")
